@@ -1,0 +1,3 @@
+<design:component label="Shelf Scanner">
+    <design:attribute name="modelId" label="Model ID" description="Model ID of the trained Object Detection model" />
+</design:component>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Shelf_Scan__c</fullName>
+    <externalId>false</externalId>
+    <label>Shelf Scan</label>
+    <referenceTo>Shelf_Scan__c</referenceTo>
+    <relationshipLabel>Scan Results</relationshipLabel>
+    <relationshipName>Scan_Results</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

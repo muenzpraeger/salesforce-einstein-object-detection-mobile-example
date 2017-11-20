@@ -1,0 +1,45 @@
+<aura:component implements="flexipage:availableForAllPageTypes" controller="ShelfScanner" access="global">
+
+    <aura:attribute name="spinnerWaiting" type="Boolean" default="false" />
+    <aura:attribute name="showDatatable" type="Boolean" default="false" />
+
+    <aura:attribute name="modelId" type="String" />
+    <aura:attribute name="imageType" type="String" />
+
+    <aura:attribute name="files" type="Object[]" />
+    <aura:attribute name="predictions" type="Einstein_PredictionResult" />
+    <aura:attribute name="rawPredictions" type="String" />
+    <aura:attribute name="shelfData" type="Object[]" />
+    <aura:attribute name="shelfDataColumns" type="List" />
+    <aura:attribute name="pictureSrc" type="String" />
+    <aura:attribute name="fileName" type="String" />
+
+    <ltng:require scripts="{! $Resource.resize }" afterScriptsLoaded="{!c.loadResizeListener}" />
+
+    <aura:handler name="init" value="{! this }" action="{! c.init }" />
+
+    <div>
+        <center>
+            <lightning:input aura:id="fileInput" type="file" name="file" multiple="false" accept="image/*;capture=camera" files="{!v.files}"
+                onchange="{! c.readFile }" label="Image (max. 5MB):" />
+
+            <div class="image-container">
+                <img aura:id="imgItself" src="{!v.pictureSrc}" />
+                <div aura:id="imgContainer" class="after">
+                </div>
+            </div>
+        </center>
+
+        <aura:if isTrue="{!v.showDatatable}">
+            <lightning:datatable data="{!v.shelfData}" columns="{!v.shelfDataColumns}" hideCheckboxColumn="true" />
+            <br />
+            <lightning:button label="Submit" onclick="{!c.store}" class="button-right"></lightning:button>
+        </aura:if>
+
+        <aura:if isTrue="{! v.spinnerWaiting }">
+            <lightning:spinner size="small" />
+        </aura:if>
+
+    </div>
+
+</aura:component>
