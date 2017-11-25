@@ -2,7 +2,7 @@ public class ShelfScanner {
     
     @AuraEnabled
     public static Einstein_PredictionResult detectShelfObjects(String modelId, String base64){
-        Einstein_PredictionService service = new Einstein_PredictionService(token, Einstein_PredictionService.Types.IMAGE_DETECTION);
+        Einstein_PredictionService service = new Einstein_PredictionService(Einstein_PredictionService.Types.IMAGE_DETECTION);
         Einstein_PredictionResult result = service.detectImageBase64(modelId, base64, 0, '');
         return result;
     }
