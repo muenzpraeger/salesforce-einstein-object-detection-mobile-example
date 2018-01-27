@@ -16,7 +16,7 @@ public class ShelfScanner {
         List<Scan_Result__c> storeResults = new List<Scan_Result__c>();
         for (Object obj : scanResults) {
             Map<String, Object> result = (Map<String, Object>)obj;
-            Scan_Result__c storeResult = new Scan_Result__c(Name=result.get('label').toString(), Count__c=(Decimal)result.get('count'), Shelf_Scan__c=scan.Id);
+            Scan_Result__c storeResult = new Scan_Result__c(Name=String.valueOf(result.get('label')), Count__c=(Decimal)result.get('count'), Shelf_Scan__c=scan.Id);
             storeResults.add(storeResult);
         }
         insert storeResults;
