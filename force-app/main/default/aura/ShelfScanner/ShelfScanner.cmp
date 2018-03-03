@@ -31,7 +31,7 @@
         </center>
 
         <aura:if isTrue="{!v.showDatatable}">
-            <lightning:datatable data="{!v.shelfData}" columns="{!v.shelfDataColumns}" hideCheckboxColumn="true" />
+            <lightning:datatable data="{!v.shelfData}" columns="{!v.shelfDataColumns}" hideCheckboxColumn="true" keyField="label"/>
             <br />
             <lightning:button label="Submit" onclick="{!c.store}" class="button-right"></lightning:button>
         </aura:if>
